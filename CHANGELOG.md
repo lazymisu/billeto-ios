@@ -23,6 +23,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Basic ViewController implementation
 - Asset catalog and localized strings setup
 - Unit test setup with BilletoTests target
+- Coordinator pattern implementation with AppCoordinator
+- BaseViewController for SwiftUI integration
+- SplashViewController and SplashView implementation
+- SceneDelegate setup for iOS 13+ support
 
 ### Changed
 - Moved from manual Xcode project management to XcodeGen
