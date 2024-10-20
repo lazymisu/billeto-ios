@@ -1,0 +1,12 @@
+//
+//  Common.xcconfig
+//  Billeto
+//
+//  Created by Felix Chacaltana on 20/10/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_VERSION = 1.0.0
+APP_BUILD_VERSION = 1

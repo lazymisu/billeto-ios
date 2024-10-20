@@ -1,0 +1,15 @@
+//
+//  Debug.xcconfig
+//  Billeto
+//
+//  Created by Felix Chacaltana on 20/10/24.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Common.xcconfig"
+
+APP_NAME = Billeto Debug
+APP_IDENTIFIER = com.billeto.debug
+APP_ENVIRONMENT = Debug

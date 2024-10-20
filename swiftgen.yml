@@ -1,0 +1,11 @@
+strings:
+  - inputs: Sources/Billeto/Resources/Base.lproj
+    outputs:
+        templateName: structured-swift5
+        output: Sources/Billeto/Generated/Strings.swift
+xcassets:
+  inputs:
+    - Sources/Billeto/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Sources/Billeto/Generated/Assets.swift

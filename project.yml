@@ -1,0 +1,52 @@
+name: Billeto
+options:
+  groupSortPosition: top
+  generateEmptyDirectories: true
+  deploymentTarget:
+    iOS: "13.0"
+fileGroups:
+  - Config
+configs:
+  Debug: debug
+  Release: release
+packages:
+  SwiftyUtils:
+    url: https://github.com/tbaranes/SwiftyUtils
+    from: 5.0.0
+  SwiftyBeaver:
+    url: https://github.com/SwiftyBeaver/SwiftyBeaver
+    from: 1.0.0
+targets:
+  Billeto:
+    type: application
+    platform: iOS
+    sources:
+      - Sources/Common
+      - Sources/Billeto
+    configFiles:
+      Debug: Config/xcconfig/Debug.xcconfig
+      Release: Config/xcconfig/Release.xcconfig
+    dependencies:
+      - package: SwiftyUtils
+      - package: SwiftyBeaver
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: $(APP_IDENTIFIER)
+    scheme:
+      gatherCoverageData: true
+      testTargets:
+        - name: BilletoTests
+          parallelizable: true
+    postCompileScripts:
+      - script: sh Scripts/copy_plists.sh ${APP_ENVIRONMENT} "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app"
+        name: Copying Plists
+      - script: swiftlint --config .swiftlint.yml
+        name: Running SwiftLint
+      - script: swiftgen
+        name: Running SwiftGen
+  BilletoTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources:
+      - Tests/BilletoTests
+    dependencies:
+      - target: Billeto
