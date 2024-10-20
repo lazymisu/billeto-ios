@@ -39,10 +39,10 @@ targets:
     postCompileScripts:
       - script: sh Scripts/copy_plists.sh ${APP_ENVIRONMENT} "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app"
         name: Copying Plists
-      - script: swiftlint --config .swiftlint.yml
+      - script: sh Scripts/run_swiftlint.sh
         name: Running SwiftLint
-      - script: swiftgen
-        name: Running SwiftGen
+      # - script: swiftgen
+      #   name: Running SwiftGen
   BilletoTests:
     platform: iOS
     type: bundle.unit-test
